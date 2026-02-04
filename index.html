@@ -32,6 +32,14 @@
       color: white;
       font-size: 16px;
     }
+    .lang-btn {
+      background: #ffb74d;
+    }
+    #output {
+      font-size: 18px;
+      margin: 15px;
+      color: #333;
+    }
     footer {
       font-size: 14px;
       color: #555;
@@ -44,26 +52,80 @@
 
 <header>
 🎒 T-edu app<br>
-<small>Learn with Fun</small>
+<small id="tagline">Learn with Fun</small>
 </header>
 
+<div id="output">Select a subject, class, or language</div>
+
 <div class="card">
-<h3>Subjects</h3>
-<button>🔢 Math</button>
-<button>🔬 Science</button>
-<button>🌍 GK</button>
+<h3 id="subjectTitle">Subjects</h3>
+<button onclick="selectSubject('Math')">🔢 Math</button>
+<button onclick="selectSubject('Science')">🔬 Science</button>
+<button onclick="selectSubject('GK')">🌍 GK</button>
 </div>
 
 <div class="card">
-<h3>Select Class</h3>
-<button>1</button><button>2</button><button>3</button><button>4</button>
-<button>5</button><button>6</button><button>7</button><button>8</button>
+<h3 id="classTitle">Select Class</h3>
+<button onclick="selectClass(1)">1</button>
+<button onclick="selectClass(2)">2</button>
+<button onclick="selectClass(3)">3</button>
+<button onclick="selectClass(4)">4</button>
+<button onclick="selectClass(5)">5</button>
+<button onclick="selectClass(6)">6</button>
+<button onclick="selectClass(7)">7</button>
+<button onclick="selectClass(8)">8</button>
+</div>
+
+<div class="card">
+<h3>Language</h3>
+<button class="lang-btn" onclick="setLang('en')">English</button>
+<button class="lang-btn" onclick="setLang('kn')">ಕನ್ನಡ</button>
+<button class="lang-btn" onclick="setLang('te')">తెలుగు</button>
+<button class="lang-btn" onclick="setLang('hi')">हिन्दी</button>
 </div>
 
 <footer>
-🌐 Languages: English | ಕನ್ನಡ | తెలుగు | हिन्दी<br>
 ⭐ Online Educational Game App
 </footer>
 
+<script>
+  function selectSubject(sub) {
+    document.getElementById("output").innerText =
+      "You selected subject: " + sub;
+  }
+
+  function selectClass(cls) {
+    document.getElementById("output").innerText =
+      "Class selected: " + cls;
+  }
+
+  function setLang(lang) {
+    if (lang === "en") {
+      document.getElementById("tagline").innerText = "Learn with Fun";
+      document.getElementById("subjectTitle").innerText = "Subjects";
+      document.getElementById("classTitle").innerText = "Select Class";
+      document.getElementById("output").innerText = "Language set to English";
+    }
+    if (lang === "kn") {
+      document.getElementById("tagline").innerText = "ಆಟದೊಂದಿಗೆ ಕಲಿಯಿರಿ";
+      document.getElementById("subjectTitle").innerText = "ವಿಷಯಗಳು";
+      document.getElementById("classTitle").innerText = "ತರಗತಿ ಆಯ್ಕೆಮಾಡಿ";
+      document.getElementById("output").innerText = "ಭಾಷೆ: ಕನ್ನಡ";
+    }
+    if (lang === "te") {
+      document.getElementById("tagline").innerText = "ఆడుతూ నేర్చుకోండి";
+      document.getElementById("subjectTitle").innerText = "విషయాలు";
+      document.getElementById("classTitle").innerText = "తరగతి ఎంచుకోండి";
+      document.getElementById("output").innerText = "భాష: తెలుగు";
+    }
+    if (lang === "hi") {
+      document.getElementById("tagline").innerText = "खेलते हुए सीखें";
+      document.getElementById("subjectTitle").innerText = "विषय";
+      document.getElementById("classTitle").innerText = "कक्षा चुनें";
+      document.getElementById("output").innerText = "भाषा: हिन्दी";
+    }
+  }
+</script>
+
 </body>
-</html>
+  </html>
